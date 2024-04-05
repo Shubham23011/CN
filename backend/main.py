@@ -103,11 +103,11 @@ async def index(type: str, devices: List[str]):
 @app.post("/transfer_data")
 async def transfer_data(sender: List[str], reciver: List[str], requestmsg: str):
    
-    return classdata(["string",
-               54585,
+    return classdata(["s1",
+               62522,
                ],
-              ["sujd",
-               52043,],
+              ["s2",
+              26381 ,],
                message="hello biro call me papa"
               )
 
