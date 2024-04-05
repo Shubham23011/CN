@@ -1,0 +1,18 @@
+[
+    {
+        "type": "star",
+        "id":1
+    },
+    {
+        "type": "bus",
+        "id":2
+    },
+    {
+        "type": "mesh",
+        "id":3
+    },
+    {
+        "type": "ring",
+        "id":4
+    }
+]

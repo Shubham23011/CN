@@ -1,0 +1,17 @@
+[
+    {
+        "device_name": "d1",
+        "port_number": 60079,
+        "mac_number": "2f:9c:b0:f9:43:69"
+    },
+    {
+        "device_name": "d2",
+        "port_number": 47470,
+        "mac_number": "af:21:0d:08:c9:ce"
+    },
+    {
+        "device_name": "d3",
+        "port_number": 40270,
+        "mac_number": "c8:df:cc:da:f8:05"
+    }
+]
