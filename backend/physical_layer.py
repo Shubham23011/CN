@@ -3,14 +3,14 @@ class EndDevice:
         self.h = h
         self.device_no = device_no
 
-    def send_acc(self, name):
+    def send_ack(self, name):
         self.h.get_data("ack", name, self.device_no)
 
     def get_data(self, s, device_name, name):
         if device_name == self.device_no:
             if s != "ack":
                 print("Received data is: " + s + "; by device " + str(name))
-                self.send_acc(name)
+                self.send_ack(name)
             else:
                 print("Ack received by device: " + str(self.device_no) + "; and send by device: " + str(name))
 
