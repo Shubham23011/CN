@@ -25,6 +25,7 @@ class EndDevice:
                     f"Received data is:  { msg}   by device  {devices[0]} ({str(devices[1])})")
                 respond_devices.append( f"Received data is:  { msg}   by device  {devices[0]} ({str(devices[1])})")
                 self.send_acc(devices)
+
             else:
                 print(
                     f"Ack received by device:{self.device_name} ( { str(self.port_number) } ) and send by device:{devices[0]} ( {str(devices[1])})")
