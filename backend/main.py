@@ -106,6 +106,9 @@ async def transfer_data(sender: List[str], reciver: List[str], requestmsg: str):
    
     return classdata(reciver,sender,requestmsg)
 
+# # Include auth routes
+#  app.include_router(auth_router, prefix="/api/v1/auth", tags=["Authentication"])
+
 # Run the application
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=8000)
