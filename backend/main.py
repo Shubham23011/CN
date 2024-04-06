@@ -103,13 +103,7 @@ async def index(type: str, devices: List[str]):
 @app.post("/transfer_data")
 async def transfer_data(sender: List[str], reciver: List[str], requestmsg: str):
    
-    return classdata(["s1",
-               62522,
-               ],
-              ["s2",
-              26381 ,],
-               message="hello biro call me papa"
-              )
+    return classdata(reciver,sender,requestmsg)
 
 # # Include auth routes
 #  app.include_router(auth_router, prefix="/api/v1/auth", tags=["Authentication"])
