@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from pydantic import BaseModel
 import os
 import uvicorn
 from fastapi.security import HTTPBasic
