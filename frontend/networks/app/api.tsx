@@ -1,17 +1,13 @@
 import axios from "axios";
-const getData=async()=>{
+const getData=async({topo,tags}:any)=>{
+  const newArray = !topo.includes("ring") && !topo.includes("mesh") ? ['hub', ...tags] : tags;
 
-const postData = {
-    "num_devices": 5,
-    "topology_choice": 1,
-    "topology_name": "Star Topology",
-    "names": ["Device1", "Device2", "Device3","Device4", "Device5"],
-    "types": ["EndDevice", "EndDevice", "Hub","Hub","EndDevice"]
-  };
+
+console.log(topo)
   
   // Fetch POST request
   try {
-    const response = await axios.post('http://localhost:8000/index', postData, {
+    const response = await axios.post(`http://localhost:8000/index?type=${topo}`, newArray, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -24,5 +20,25 @@ const postData = {
   }
 }
 
+const getackdata=async({req,msg,setRec}:any)=>{
 
-export  {getData}
+  console.log(msg)
+  // setRec([])
+    // Fetch POST request
+    try {
+      const response = await axios.post(`http://127.0.0.1:8000/transfer_data?requestmsg=${msg}`, req, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      console.log('Response:', response.data);
+      return response.data
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }
+  
+
+
+export  {getData,getackdata}

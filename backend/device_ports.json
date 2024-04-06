@@ -1,22 +1,22 @@
 [
     {
-        "device_name": "bsd",
-        "port_number": "11791",
-        "mac_number": "7e:8e:2c:e0:8f:6c"
+        "device_name": "d1",
+        "port_number": "48773",
+        "mac_number": "87:25:09:f6:e7:53"
     },
     {
-        "device_name": "bsdk",
-        "port_number": "56698",
-        "mac_number": "df:b4:f1:b1:08:77"
+        "device_name": "d2",
+        "port_number": "12984",
+        "mac_number": "80:e4:06:07:39:8b"
     },
     {
-        "device_name": "mc",
-        "port_number": "20647",
-        "mac_number": "78:96:87:88:c5:62"
+        "device_name": "d3",
+        "port_number": "16402",
+        "mac_number": "6f:88:ca:85:3a:5a"
     },
     {
-        "device_name": "bc",
-        "port_number": "50019",
-        "mac_number": "48:b9:66:a1:44:db"
+        "device_name": "d4",
+        "port_number": "17041",
+        "mac_number": "df:03:c6:80:a7:ab"
     }
 ]
