@@ -1,0 +1,17 @@
+[
+    {
+        "device_name": "s1",
+        "port_number": 62522,
+        "mac_number": "e9:32:29:41:e3:40"
+    },
+    {
+        "device_name": "s2",
+        "port_number": 26381,
+        "mac_number": "f2:93:2e:43:53:44"
+    },
+    {
+        "device_name": "s3",
+        "port_number": 15069,
+        "mac_number": "de:9a:3d:e5:71:78"
+    }
+]
