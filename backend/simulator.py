@@ -90,3 +90,4 @@ if __name__ == "__main__":
     create_mesh_topology([device1, device2, device3])
 
     device1.send_data("Hello from Device 1")
+    
