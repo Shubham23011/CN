@@ -1,0 +1,22 @@
+[
+    {
+        "device_name": "bsd",
+        "port_number": "11791",
+        "mac_number": "7e:8e:2c:e0:8f:6c"
+    },
+    {
+        "device_name": "bsdk",
+        "port_number": "56698",
+        "mac_number": "df:b4:f1:b1:08:77"
+    },
+    {
+        "device_name": "mc",
+        "port_number": "20647",
+        "mac_number": "78:96:87:88:c5:62"
+    },
+    {
+        "device_name": "bc",
+        "port_number": "50019",
+        "mac_number": "48:b9:66:a1:44:db"
+    }
+]

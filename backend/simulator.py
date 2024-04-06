@@ -1,93 +1,93 @@
-from abc import ABC, abstractmethod
+import networkx as nx
+import matplotlib.pyplot as plt
+import io
+import base64
 
-# Define an interface for sending and receiving data
-class NetworkDevice(ABC):
-    @abstractmethod
-    def send_data(self, data):
-        pass
+def generate_ring_topology(devices:list):
+    # Create a ring topology graph using NetworkX
+    num_devices = len(devices)
+    print(num_devices)
+    G = nx.cycle_graph(num_devices)
 
-    @abstractmethod
-    def receive_data(self, data):
-        pass
+    # Draw the graph
+    pos = nx.circular_layout(G)
+    nx.draw(G, pos,  with_labels=True, labels={i: device for i, device in enumerate(devices)}, node_size=1000, node_color='skyblue', font_size=12, font_weight='bold')
 
-# Define a class for end devices
-class EndDevice(NetworkDevice):
-    def __init__(self, name):
-        self.name = name
-        self.connection = None  # Connection to a hub or another device
+    # Convert the image to a base64 string
+    img_buffer = io.BytesIO()
+    plt.savefig(img_buffer, format='png')
+    plt.clf() 
+    img_buffer.seek(0)
+    img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
 
-    def send_data(self, data):
-        if self.connection:
-            self.connection.receive_data(data)
-        else:
-            print(f"{self.name} has no connection to send data.")
+    return img_str
 
-    def receive_data(self, data):
-        print(f"{self.name} received data: {data}")
+def generate_star_topology(devices):
+    # Create a star topology graph using NetworkX
+    num_devices = len(devices)
+    print(num_devices)
+    G = nx.star_graph(num_devices - 1)
 
-    def connect_to(self, target):
-        self.connection = target
+    # Draw the graph
+    pos = nx.spring_layout(G)
+    nx.draw(G, pos, with_labels=True, labels={i: device for i, device in enumerate(devices)},
+            node_size=1000, node_color='skyblue', font_size=12, font_weight='bold')
 
-# Define a class for hubs
-class Hub(NetworkDevice):
-    def __init__(self, name):
-        self.name = name
-        self.connected_devices = []
 
-    def send_data(self, data):
-        for device in self.connected_devices:
-            device.receive_data(data)
+    # Convert the image to a base64 string
+    img_buffer = io.BytesIO()
+    plt.savefig(img_buffer, format='png')
+    plt.clf() 
+    img_buffer.seek(0)
+    img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
 
-    def receive_data(self, data):
-        print(f"{self.name} received data: {data}")
-        self.send_data(data)
+    return img_str
 
-    def connect_device(self, device):
-        self.connected_devices.append(device)
-        device.connection = self
-
-# Function to create a star topology
-def create_star_topology(devices, hub_name):
-    hub = Hub(hub_name)
-    for device in devices:
-        hub.connect_device(device)
-    return hub
-
-# Function to create a point-to-point topology
-def create_point_to_point_topology(devices):
-    for i in range(len(devices) - 1):
-        devices[i].connect_to(devices[i+1])
-
-# Function to create a bus topology
-def create_bus_topology(devices):
-    hub = Hub("Bus Hub")
-    for device in devices:
-        hub.connect_device(device)
-    return hub  # Return the created hub
-
-# Function to create a ring topology
-def create_ring_topology(devices):
-    for i in range(len(devices)):
-        devices[i].connect_to(devices[(i + 1) % len(devices)])
-
-# Function to create a mesh topology
-def create_mesh_topology(devices):
-    for i in range(len(devices)):
-        for j in range(len(devices)):
-            if i != j:
-                devices[i].connect_to(devices[j])
-
-if __name__ == "__main__":
-    # Test the network simulation
-    device1 = EndDevice("Device 1")
-    device2 = EndDevice("Device 2")
-    device3 = EndDevice("Device 3")
-
-    create_point_to_point_topology([device1, device2, device3])
-    hub = create_star_topology([device1, device2, device3], "Star Hub")
-    hub = create_bus_topology([device1, device2, device3])  # Assign the returned hub to a variable
-    create_ring_topology([device1, device2, device3])
-    create_mesh_topology([device1, device2, device3])
-
-    device1.send_data("Hello from Device 1")
+def generate_bus_topology(devices):
+    # Create a bus topology graph using NetworkX
+    num_devices = len(devices)
+    G = nx.path_graph(num_devices)
     
+    # Set custom positions for nodes
+    pos = {node: (node, 0) for node in G.nodes()}
+
+    # Draw the graph with custom positions
+    nx.draw(G, pos,  with_labels=True, labels={i: device for i, device in enumerate(devices)}, node_size=1000, node_color='skyblue', font_size=12, font_weight='bold')
+
+    # Convert the image to a base64 string
+    img_buffer = io.BytesIO()
+    plt.savefig(img_buffer, format='png')
+    plt.clf() 
+    img_buffer.seek(0)
+    img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
+
+    return img_str
+
+def generate_mesh_topology(devices):
+    # Create a mesh topology graph using NetworkX
+    num_devices = len(devices)
+    G = nx.complete_graph(num_devices)
+
+    # Draw the graph
+    pos = nx.spring_layout(G)
+    nx.draw(G, pos,  with_labels=True, labels={i: device for i, device in enumerate(devices)}, node_size=1000, node_color='skyblue', font_size=12, font_weight='bold')
+    # Convert the image to a base64 string
+    img_buffer = io.BytesIO()
+    plt.savefig(img_buffer, format='png')
+    plt.clf() 
+    img_buffer.seek(0)
+    img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
+
+    return img_str
+
+# Example usage:
+# devices = ["Device1", "Device2", "Device3", "Device4"]
+
+# # Generate topologies
+# ring_topology_img = generate_ring_topology(devices)
+# star_topology_img = generate_star_topology(devices)
+# bus_topology_img = generate_bus_topology(devices)
+# mesh_topology_img = generate_mesh_topology(devices)
+
+# Now you can use the generated image strings as needed
+# For example, you can return them in a FastAPI endpoint response
