@@ -1,17 +1,24 @@
 [
     {
-        "device_name": "s1",
-        "port_number": 62522,
-        "mac_number": "e9:32:29:41:e3:40"
+
+        "device_name": "d1",
+        "port_number": "48773",
+        "mac_number": "87:25:09:f6:e7:53"
     },
     {
-        "device_name": "s2",
-        "port_number": 26381,
-        "mac_number": "f2:93:2e:43:53:44"
+        "device_name": "d2",
+        "port_number": "12984",
+        "mac_number": "80:e4:06:07:39:8b"
     },
     {
-        "device_name": "s3",
-        "port_number": 15069,
-        "mac_number": "de:9a:3d:e5:71:78"
+        "device_name": "d3",
+        "port_number": "16402",
+        "mac_number": "6f:88:ca:85:3a:5a"
+    },
+    {
+        "device_name": "d4",
+        "port_number": "17041",
+        "mac_number": "df:03:c6:80:a7:ab"
+
     }
 ]

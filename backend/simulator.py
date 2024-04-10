@@ -16,6 +16,9 @@ def generate_ring_topology(devices:list):
     # Convert the image to a base64 string
     img_buffer = io.BytesIO()
     plt.savefig(img_buffer, format='png')
+
+    plt.clf() 
+
     img_buffer.seek(0)
     img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
 
@@ -36,6 +39,9 @@ def generate_star_topology(devices):
     # Convert the image to a base64 string
     img_buffer = io.BytesIO()
     plt.savefig(img_buffer, format='png')
+
+    plt.clf() 
+
     img_buffer.seek(0)
     img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
 
@@ -55,6 +61,9 @@ def generate_bus_topology(devices):
     # Convert the image to a base64 string
     img_buffer = io.BytesIO()
     plt.savefig(img_buffer, format='png')
+
+    plt.clf() 
+
     img_buffer.seek(0)
     img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
 
@@ -71,6 +80,9 @@ def generate_mesh_topology(devices):
     # Convert the image to a base64 string
     img_buffer = io.BytesIO()
     plt.savefig(img_buffer, format='png')
+
+    plt.clf() 
+
     img_buffer.seek(0)
     img_str = base64.b64encode(img_buffer.read()).decode('utf-8')
 
@@ -85,5 +97,4 @@ def generate_mesh_topology(devices):
 # bus_topology_img = generate_bus_topology(devices)
 # mesh_topology_img = generate_mesh_topology(devices)
 
-# Now you can use the generated image strings as needed
-# For example, you can return them in a FastAPI endpoint response
+
