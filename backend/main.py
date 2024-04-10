@@ -1,4 +1,4 @@
-# from pydantic import BaseModel
+
 from pydantic import BaseModel
 import os
 import uvicorn
@@ -84,9 +84,9 @@ def read_root():
 async def index(type: str, devices: List[str]):
     device = devices
     devices_details = port_and_mac_assigen_to_devices(devices)
-  
-    print(device)
-    
+
+    img = base64
+
     if type == "star":
         img = generate_star_topology(devices)
     elif type == "bus":

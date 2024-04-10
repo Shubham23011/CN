@@ -1,5 +1,6 @@
 [
     {
+
         "device_name": "d1",
         "port_number": "48773",
         "mac_number": "87:25:09:f6:e7:53"
@@ -18,5 +19,6 @@
         "device_name": "d4",
         "port_number": "17041",
         "mac_number": "df:03:c6:80:a7:ab"
+
     }
 ]
